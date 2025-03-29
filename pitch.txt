@@ -1,0 +1,12 @@
+composer require laravel/breeze --dev
+2. Then install breeze separately using "composer require laravel/breeze"
+3. Then execute "php artisan breeze:install" and choose "React with Inertia.For adding react, typscript, and ssr
+composer require laravel/breeze --dev
+php artisan breeze:install react --typescript --ssr
+npm install
+php artisan migrate
+php artisan storage:link
+
+npm run dev | php artisan serve
+ Define two folders in components the Core{reusable components} and the App{for everything specific to this project i.e the logo}
+git init
