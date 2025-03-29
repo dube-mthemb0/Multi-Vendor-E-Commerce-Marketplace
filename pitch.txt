@@ -1,3 +1,6 @@
+multi-vendor e-commerce marketplace from scratch using Laravel, React with TypeScript, Tailwindcss with DaisyUI, FilamentPHP and Stripe online payments.
+
+
 composer require laravel/breeze --dev
 2. Then install breeze separately using "composer require laravel/breeze"
 3. Then execute "php artisan breeze:install" and choose "React with Inertia.For adding react, typscript, and ssr
@@ -10,3 +13,8 @@ php artisan storage:link
 npm run dev | php artisan serve
  Define two folders in components the Core{reusable components} and the App{for everything specific to this project i.e the logo}
 git init
+ tailwindconfig.js remove forms & npm uninstall @tailwindcss/forms | require('daisyui')
+Login.tsx
+
+update the function Authenrticate to AuthenticatedLayout
+#NB moving between the pages is slow because we dont have the ssr running yet
