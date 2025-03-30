@@ -18,3 +18,26 @@ Login.tsx
 
 update the function Authenrticate to AuthenticatedLayout
 #NB moving between the pages is slow because we dont have the ssr running yet
+im app i have created Navbar.tsx file 
+now i am creating the hero section
+
+spatie laravel package for creating user roles and permission
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
+php artisan config:clear
+
+in user.php add use HasRoles; then go back to the spatie laravel documentation
+{ctrl*2 in php Storm}
+php artisan make:class RolesEnum
+php artisan make:class PermissionsEnum
+{shift*2 to search}
+edit the classes to enums and remove the constructors
+with roles and permissions set up
+open seeders 
+php artisan make:seeder RoleSeeder
+php artisan make:seeder UserSeeder
+  
+we now have the permissions the roles we are going to now synchronize the permissions
+now we create the enums folder in the app directory to put enums and php storms refactors cool!!
+php artisan migrate:fresh --seed
