@@ -30,7 +30,7 @@ export default function Welcome({
                         <p className="py-4 text-lg text-gray-700">
                             Unlock savings and support local businesses by accessing exclusive discounts.
                         </p>
-                        <button className="btn btn-primary btn-lg hover: transition-all">
+                        <button  className="btn btn-primary btn-lg hover: transition-all">
                             Get Started
                         </button>
                     </div>

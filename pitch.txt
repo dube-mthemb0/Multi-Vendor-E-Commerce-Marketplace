@@ -1,5 +1,5 @@
 multi-vendor e-commerce marketplace from scratch using Laravel, React with TypeScript, Tailwindcss with DaisyUI, FilamentPHP and Stripe online payments.
-
+@sendmeapp
 
 composer require laravel/breeze --dev
 2. Then install breeze separately using "composer require laravel/breeze"
@@ -41,3 +41,10 @@ php artisan make:seeder UserSeeder
 we now have the permissions the roles we are going to now synchronize the permissions
 now we create the enums folder in the app directory to put enums and php storms refactors cool!!
 php artisan migrate:fresh --seed
+dont forget to import use App\Models\User;
+committ "install spatie laravel package and implenting role-based access control (RBAC) using Spatie"
+
+Now we are moving on to use Filament doc,
+composer require filament/filament dont put the version it has some issues
+php artisan filament:install --panels
+now we must fix middleware access t the filament admin pan.
