@@ -2,24 +2,37 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\Enums\ProductStatusEnum;
+use App\Enums\ProductStatusEnum;
 use App\Filament\Resources\ProductResource\Pages;
+use App\Filament\Resources\ProductResource\Pages\EditProduct;
+use App\Filament\Resources\ProductResource\Pages\ProductVariationTypes;
 use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Pages\SubNavigationPosition;
+use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use App\Filament\Resources\ProductResource\Pages\ProductVariations;
+
 
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-queue-list';
+
+
+    protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::End;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->forVendor();
+    }
 
     public static function form(Form $form): Form
     {
@@ -109,6 +122,11 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\SpatieMediaLibraryImageColumn::make('images')
+                    ->collection('images')
+                    ->limit(1)
+                    ->conversion('thumb')
+            ->label('Image'),
                 Tables\Columns\TextColumn::make('title')
                 ->sortable()
                 ->words(10)
@@ -150,6 +168,21 @@ class ProductResource extends Resource
             'index' => Pages\ListProducts::route('/'),
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
+            'images' => Pages\ProductImages::route('/{record}/images'),
+            'variation-types' => Pages\ProductVariationTypes::route('/{record}/variation-types'),
+            'variations' => Pages\ProductVariations::route('/{record}/variations'),
         ];
     }
+    public static function getRecordSubNavigation(Page $page): array
+    {
+        return $page->generateNavigationItems([
+            EditProduct::class,
+            Pages\ProductImages::class,
+            ProductVariationTypes::class,
+            ProductVariations::class,
+
+            ]);
+
+    }
+
 }
