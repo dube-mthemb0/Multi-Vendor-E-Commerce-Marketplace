@@ -3,7 +3,9 @@ import { Head, Link } from '@inertiajs/react';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import ProductItem from "@/Components/App/ProductItem";
 
-export default function Home({products}: PageProps<{products: PaginationProps<Product> }>) {
+export default function Home({
+  products
+}: PageProps<{products: PaginationProps<Product> }>) {
 
     return (
         <AuthenticatedLayout>

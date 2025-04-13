@@ -12,6 +12,7 @@ export type Product = {
   title: string;
   slug:string;
   price:number;
+  quantity: number;
   image:string;
   user: {
     id: number;

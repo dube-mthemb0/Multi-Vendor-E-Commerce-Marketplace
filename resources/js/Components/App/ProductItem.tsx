@@ -1,6 +1,6 @@
 import {Product} from "@/types";
 import {Link} from "@inertiajs/react";
-import {JSX} from "react";
+
 import CurrencyFormatter from "@/Components/Core/CurrencyFormatter";
 
 export default function ProductItem({product}: {product: Product}): any {
@@ -11,8 +11,7 @@ export default function ProductItem({product}: {product: Product}): any {
                     <img
                         src={product.image}
                         alt={product.title}
-                        className={"aspect-square object-cover"}
-                    />
+                        className="aspect-square object-cover"/>
                 </figure>
             </Link>
             <div className="card-body">

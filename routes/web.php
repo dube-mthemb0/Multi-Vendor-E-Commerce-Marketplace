@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;

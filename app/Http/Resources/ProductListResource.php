@@ -7,6 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductListResource extends JsonResource
 {
+
     /**
      * Transform the resource into an array.
      *
@@ -23,6 +24,7 @@ class ProductListResource extends JsonResource
             'image'=>$this->getFirstMediaUrl('images', 'small'),
             'user'=> [
                 'id'=>$this->user->id,
+                'name'=>$this->user->name,
             ],
             'department'=> [
                 'id'=>$this->department->id,

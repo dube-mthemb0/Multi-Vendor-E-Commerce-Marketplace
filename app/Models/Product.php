@@ -1,16 +1,19 @@
-<?php
+<?php /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 namespace App\Models;
 
 use App\Enums\ProductStatusEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Builder;
+
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Product extends Model implements \Spatie\MediaLibrary\HasMedia
+
+class Product extends Model implements HasMedia
 {
 
     use InteractsWithMedia;
@@ -40,7 +43,7 @@ class Product extends Model implements \Spatie\MediaLibrary\HasMedia
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo(User::class, 'created_by');
     }
     public function department(): BelongsTo
     {

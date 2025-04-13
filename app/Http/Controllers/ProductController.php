@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Resources\ProductListResource;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -20,8 +22,13 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show($product)
+    public function show(Product $product)
     {
+        return Inertia::render('Product/Show', [
+            'product'=> new ProductResource($product),
+            'variationOptions'=> request('options', [])
+
+        ]);
 
     }
 
