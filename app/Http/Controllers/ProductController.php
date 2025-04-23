@@ -22,7 +22,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show(Product $product)
+    public function show(Product $product): Response
     {
         return Inertia::render('Product/Show', [
             'product'=> new ProductResource($product),

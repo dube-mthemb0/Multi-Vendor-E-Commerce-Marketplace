@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         ])->assignRole(RolesEnum::User->value);
 
-        //Vendor || Buyer
+        //Vendor || Seller
         User::factory()->create([
             'name'=> 'vendor',
             'email'=>"vendor@example.com"

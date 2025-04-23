@@ -48,3 +48,64 @@ Now we are moving on to use Filament doc,
 composer require filament/filament dont put the version it has some issues
 php artisan filament:install --panels
 now we must fix middleware access t the filament admin pan.
+
+php artisan migrate:fresh --seed
+ php artisan route:list
+changed route(filament.admin.pages.dashboard )
+php artisan make:model Department -m
+php artisan make:filament-resource Department
+php artisan make:filament-relation-manager DepartmentResource categories name
+
+   INFO  Filament relation manager [C:/xampp/htdocs/pitch-react-platform/app/Fil
+ament/Resources/DepartmentResource/RelationManagers/CategoriesRelationManager.ph
+p] created successfully.  
+
+   INFO  Make sure to register the relation in `DepartmentResource::getRelations
+()`.
+php artisan make:filament-resource Department
+C
+
+Category.php to register 
+now we will proceed to make seeders for the Departments
+php artisan make:seeder DepartmentSeeder
+php artisan make:seeder CategorySeeder
+on Database seeder we now add the seeder classes
+ populated the seeders
+php artisan migrate:fresh --seed
+
+going to the vendor side
+php artisan make:model Product -mc
+we need the model and the controller
+
+php artisan make:enum Enums\ProductStatusEnum
+php artisan make:filament-resource Product
+
+now we will go to create-products-table to update it for the migration
+we then go to the newly created ProductStatusEnum
+next we find the product model and define belongs to relations
+now we go to ProductResource.php
+we then migrate the products table
+
+
+
+####NB We copy the filament from DepartmentResource to product and update it to only vendors have oversight??!! We will come back to this later####
+
+
+we now want the products to display from the table , from the ProductResource
+
+filament spatie media library to allow for polymeric images o any table
+the command composer require filament/spatie-laravel-media-library-plugin
+next we publish the migration files php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="medialibrary-migrations"
+our model is product.php
+
+Now we start queue for our images php artisan queue listen
+we then publish the config file php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="medialibrary-config"
+we then create a new class App/Services
+
+We are now moving on to the fun part of product variation
+php artisan make:model VariationType
+php artisan make:model VariationTypeOption
+php artisan make:model ProductVariation -m
+ php artisan migrate
+
+php artisan make:enum Enums\ProductVariationTypes
